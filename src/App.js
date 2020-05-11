@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { debounce } from 'throttle-debounce';
 
 import RepoSearch from './components/RepoSearch';
 import RepoCard from './components/RepoCard';
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <RepoSearch onSearchChange={term => this.searchRepos(term)}/>
+        <RepoSearch onSearchChange={term => debounce(300, this.searchRepos(term))}/>
         {
           this.state.data.map((repo, index) => {
             return <RepoCard key={'repo-' + index} id={repo.id} name={repo.name} watchersCount={repo.watchers_count} />;
