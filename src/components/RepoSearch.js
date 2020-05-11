@@ -25,8 +25,9 @@ class RepoSearch extends React.Component {
     }
 
     onInputChange(term) {
-        this.setState({term});
-        this.props.onSearchChange(term);
+        this.setState({term}, () => {
+            this.props.onSearchChange(this.state.term);
+        });
     }
 }
 

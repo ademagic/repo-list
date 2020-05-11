@@ -13,14 +13,24 @@ class App extends React.Component {
 
     this.state = {
       data: [],
+      term: 'awesome'
     }
+
+    this.debounceSearch = debounce(500, this.searchRepos);
   }
 
   componentDidMount() {
-    this.searchRepos('awesome');
+    this.searchRepos(this.state.term);
   }
 
-  searchRepos(term) {
+  changeSearch = term => {
+    this.setState({ term }, () => {
+      this.debounceSearch(this.state.term);
+    });
+  }
+
+  searchRepos = term => {
+    console.log(term);
     axios.get(`https://api.github.com/search/repositories?q=/${term}&sort=stars&order=desc`).then((response) => {
       const data = response.data.items
       this.setState({ data });
@@ -30,7 +40,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        <RepoSearch onSearchChange={term => debounce(300, this.searchRepos(term))}/>
+        <RepoSearch onSearchChange={term => this.changeSearch(term)}/>
           <ul className='repoList'>
             {
               this.state.data.map((repo, index) => {
