@@ -6,9 +6,9 @@ It uses the [Github v3 Search API](https://developer.github.com/v3/search/#searc
 
 You can see further explanation of each step in the commit history. I've linked the main commits here for ease of reading.
 
-1. [Simple Setup]() – the first commit after the initial commit. I set up the app, request data from the github API, and display it as a crude list with the required pieces of data.
-2. [Debouncer]() – I debounce the function that retrieves the search results from the GitHub API to 300ms when the user changes the input. I implement this with throttle-debounce to save time – I avoid lodash since I have no need for all the features it brings. Also contains a critical [bugfix]() as I didn't get the implementation right the first time.
-3. [Styling updates]() – some minor styling changes to make the results look a bit easier to read. Needs a lot more work!
+1. [Simple Setup](https://github.com/ademagic/repo-list/commit/0e2099f12e3043d07ac4dc03836391f6f0d16dfa) – the first commit after the initial commit. I set up the app, request data from the github API, and display it as a crude list with the required pieces of data.
+2. [Debouncer](https://github.com/ademagic/repo-list/commit/e5da0c031cdd4c3b3da0fe0bd8485d9d7c7d8b3f) – I debounce the function that retrieves the search results from the GitHub API to 300ms when the user changes the input. I implement this with throttle-debounce to save time – I avoid lodash since I have no need for all the features it brings. Also contains a critical [bugfix](https://github.com/ademagic/repo-list/commit/71532dae0fd221c246eff49e0d46760790cd2594) as I didn't get the implementation right the first time.
+3. [Styling updates](https://github.com/ademagic/repo-list/commit/952cb28d55bb0af17c1a9473aba3340c3f1f99d0) – some minor styling changes to make the results look a bit easier to read. Needs a lot more work!
 
 ## Future features
 ### Pagination
