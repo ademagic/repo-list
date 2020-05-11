@@ -14,7 +14,9 @@ class App extends React.Component {
     this.state = {
       data: [],
     }
+  }
 
+  componentDidMount() {
     this.searchRepos('awesome');
   }
 
@@ -27,13 +29,27 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <RepoSearch onSearchChange={term => debounce(300, this.searchRepos(term))}/>
-        {
-          this.state.data.map((repo, index) => {
-            return <RepoCard key={'repo-' + index} id={repo.id} name={repo.name} watchersCount={repo.watchers_count} />;
-          })
-        }
+          <ul className='repoList'>
+            {
+              this.state.data.map((repo, index) => {
+                return (
+                  <RepoCard
+                    key={'repo-' + index}
+                    id={repo.id}
+                    name={repo.name}
+                    htmlUrl={repo.html_url}
+                    description={repo.description}
+                    author={repo.owner.login}
+                    authorAvatar={repo.owner.avatar_url}
+                    authorUrl={repo.owner.html_url}
+                    watchersCount={repo.watchers_count}
+                  />
+                );
+              })
+            }
+          </ul>
       </div>
     );
   }

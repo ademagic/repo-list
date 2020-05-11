@@ -1,0 +1,26 @@
+.repoSearch {
+    border: 1px solid #dedede;
+    padding: 2rem 1rem;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+}
+
+.repoSearch__label {
+    display: block;
+    margin-bottom: 1.2rem;
+}
+
+.repoSearch__input {
+    display: block;
+    width: 100%;
+    font-size: 36px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    line-height: normal;
+    padding: .5rem .625rem;
+}

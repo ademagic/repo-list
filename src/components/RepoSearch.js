@@ -1,4 +1,5 @@
 import React from 'react';
+import './RepoSearch.scss'
 
 class RepoSearch extends React.Component {
     constructor(props) {
@@ -9,8 +10,14 @@ class RepoSearch extends React.Component {
 
     render() {
         return (
-            <div className="search-bar">
+            <div className='repoSearch'>
+                <label htmlFor='repoSearch' className='repoSearch__label'>
+                    Search GitHub Repositories:
+                </label>
                 <input
+                    id='repoSearch'
+                    placeholder='e.g. Octocat'
+                    className='repoSearch__input'
                     value={this.state.term}
                     onChange={event => this.onInputChange(event.target.value)} />
             </div>

@@ -1,0 +1,67 @@
+$border: 1px solid #dedede;
+$titleBackground: #19191c;
+
+@mixin cardPadding {
+    padding: 1.2rem 0.625rem;
+}
+
+.repoCard {
+    border: $border;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    a {
+        text-decoration: none;
+        color: #0072ff;
+
+        &:hover,
+        &:active {
+            color: lighten(#0072ff, 10%);
+        }
+    }
+}
+
+.repoCard__heading {
+    background-color: $titleBackground;
+    color: white;
+}
+
+.repoCard__surTitle {
+    color: lighten($titleBackground, 40%);
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+}
+
+.repoCard__title {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.repoCard__subTitle {
+    font-size: 1.175rem;
+    margin-bottom: 0.625rem
+}
+
+.repoCard__contents {
+    box-shadow: 0px 0px 3px #efefef inset;
+}
+
+.repoCard__footer {
+    border-top: $border;
+
+    img {
+        width: 2rem;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
+}
+
+.repoCard__heading,
+.repoCard__contents,
+.repoCard__footer {
+    @include cardPadding();
+}
