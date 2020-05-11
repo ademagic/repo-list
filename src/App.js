@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   searchRepos = term => {
-    console.log(term);
     axios.get(`https://api.github.com/search/repositories?q=/${term}&sort=stars&order=desc`).then((response) => {
       const data = response.data.items
       this.setState({ data });
